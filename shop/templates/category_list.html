@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>category</h1>
+    <ul>
+        {% for category in categories %}
+        <li><a href="{% url 'subcategory_list' category.slug %}">{{category.name}}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

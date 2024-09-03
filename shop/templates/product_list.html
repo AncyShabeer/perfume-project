@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subcategory.name }} - Products</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>{{ subcategory.name }} - products</h1>
+    <ul class="product-list">
+        {% for product in products %}
+        <li>
+           {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="https://cdn.pixabay.com/photo/2024/05/13/20/10/ai-generated-8759674_640.jpg" alt="default image">
+            {% endif %}
+            <h2>{{product.name}}</h2>
+            <p>{{product.description}}</p>
+            <p class="price">Price: {{product.price}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
